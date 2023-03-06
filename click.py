@@ -11,21 +11,6 @@ WM_LBUTTONUP = 0x202
 WM_MOUSEWHEEL = 0x020A
 WHEEL_DELTA = 120
 
-
-def move_to(handle: HWND, x: int, y: int):
-    """移动鼠标到坐标（x, y)
-
-    Args:
-        handle (HWND): 窗口句柄
-        x (int): 横坐标
-        y (int): 纵坐标
-    """
-    # https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-mousemove
-    wparam = 0
-    lparam = y << 16 | x
-    PostMessageW(handle, WM_MOUSEMOVE, wparam, lparam)
-
-
 def left_down(handle: HWND, x: int, y: int):
     """在坐标(x, y)按下鼠标左键
 
