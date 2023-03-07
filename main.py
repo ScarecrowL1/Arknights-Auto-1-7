@@ -1,6 +1,9 @@
 import time
 from ctypes import windll
 
+from win32con import SWP_NOMOVE, SWP_NOZORDER
+from win32gui import SetWindowPos
+
 import reconize
 import click
 
@@ -21,6 +24,8 @@ if __name__ == "__main__":
     except:
         print("找不到明日方舟 - MuMu模拟器")
         sys.exit(1)
+    # 将模拟器的窗口大小设置为程序可执行的大小 1440*899 使得游戏框为1440*810
+    SetWindowPos(handle, 0, 0, 0, 1440, 899, SWP_NOMOVE | SWP_NOZORDER)
     print("请输入执行次数:")
     cnt = int(input())
     i = 0
